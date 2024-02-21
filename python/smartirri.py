@@ -1,4 +1,4 @@
-#Original Project: [SmartIrri-AcediaOpnSrc](https://github.com/SlothyAcedia/opnsrc/blob/main/py/pyprog/smartirrigation.py)
+#Original Project: [SmartIrri-AcediaOpnSrc](https://github.com/SlothyAcedia/opnsrc/blob/main/python/smartirri.py)
 import RPi.GPIO as gpio
 import time as t
 import requests
