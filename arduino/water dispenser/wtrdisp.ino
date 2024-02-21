@@ -1,4 +1,4 @@
-//Spring valve model on https://github.com/sinfuls-acedia/opnsrc/blob/main/model/SprVlv%20v2.f3d
+//Spring valve model on https://github.com/sinfuls-acedia/opnsrc/blob/main/model/SprVlv_WtrDisp.f3d
 
 #include <Servo.h> //sets code to use the Servo.h library
 
