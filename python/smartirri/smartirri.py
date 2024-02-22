@@ -1,4 +1,4 @@
-#Original Project: [SmartIrri-AcediaOpnSrc](https://github.com/sinfuls-acedia/opnsrc/blob/main/python/smartirri.py)
+#Original Project: [SmartIrri-AcediaOpnSrc](https://github.com/sinfuls-acedia/opnsrc/blob/main/python/smartirri/smartirri.py)
 import RPi.GPIO as gpio
 import time as t
 import requests
