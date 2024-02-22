@@ -40,7 +40,7 @@ void loop() {
 
   if(distance <=10){
     myservo2.write(posopn2); //closes spring valve
-    delay(1000);
+    delay(50);
     myservo1.write(posopn1); //open gate valve
   }
   else if(distance >10){
