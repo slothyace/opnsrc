@@ -1,4 +1,5 @@
 //Spring valve model on https://github.com/sinfuls-acedia/opnsrc/blob/main/model/SprVlv_WtrDisp.f3d
+//Copying of the entire file requires confirmation with Acedia, contact him on Discord available in README.md
 
 #include <Servo.h> //sets code to use the Servo.h library
 
