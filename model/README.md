@@ -1,5 +1,5 @@
 # Models
-Files in this folder are models related to projects I've contributed in, some are free to be downloaded raw and macufactured.
+Files in this folder are models related to projects I've contributed in, some are free to be downloaded raw and produced.
 Exceptions listed below.
 
 ## Exceptions
