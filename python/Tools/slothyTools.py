@@ -19,7 +19,7 @@ def convert_csv_to_xlsx(folder_path):
 
     for csv_file in csv_files:
         try:
-            df = pd.read_csv(csv_file)
+            df = pd.read_csv(csv_file, encoding='latin1')
             xlsx_file = csv_file.replace('.csv', '.xlsx')
             df.to_excel(xlsx_file, index=False)
             print(f"Converted {csv_file} to {xlsx_file}")
@@ -61,6 +61,18 @@ def convert_xlsx_to_csv(folder_path):
         
         except Exception as e:
             messagebox.showerror("Error", f"Failed to convert {xlsx_file} due to: {e}")
+
+    delete_choice = messagebox.askyesno("Delete XLSX files", "Do you want to delete the original XLSX files?")
+    
+    if delete_choice:
+        for xlsx_file in xlsx_files:
+            try:
+                os.remove(xlsx_file)
+                print(f"Deleted {xlsx_file}")
+            except Exception as e:
+                messagebox.showerror("Error", f"Failed to delete {xlsx_file} due to: {e}")
+    else:
+        messagebox.showinfo("Info", "XLSX files were not deleted.")
 
 def browse_folder_for_csv_to_xlsx():
     folder_path = filedialog.askdirectory()
