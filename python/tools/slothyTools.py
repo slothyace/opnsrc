@@ -5,7 +5,7 @@ import subprocess
 import csv
 import glob
 import tkinter as tk
-from tkinter import *
+from tkinter import filedialog, messagebox
 
 # External Libraries
 installables = ["ttkbootstrap", "openpyxl"]
