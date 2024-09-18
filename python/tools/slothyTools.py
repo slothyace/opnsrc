@@ -152,13 +152,13 @@ else:
             if folder_path:
                 X2C_Folder(folder_path, console)
 
-        def sC2X(console):
+        def browse_C2X_File(console):
             file_path = filedialog.askopenfilename(filetypes=[("CSV files", "*.csv")])
             if file_path:
                 C2X(file_path, console)
                 delFile(console, file_path)
 
-        def sX2C(console):
+        def browse_X2C_File(console):
             file_path = filedialog.askopenfilename(filetypes=[("Excel files", "*.xlsx")])
             if file_path:
                 X2C(file_path, console)
@@ -167,29 +167,28 @@ else:
         # GUI Part
         root = ttk.Window(themename="darkly")
         root.title("Acedia - slothyTools")
-        root.geometry("500x300")
+        root.geometry("800x500")
         root.resizable(True, True)
-        root.minsize(500, 300)
+        root.minsize(800, 500)
+        
+        brandframe = ttk.LabelFrame(root, text="Welcome To", bootstyle="success")
+        brandframe.pack(pady=0, padx=10, ipadx=5 , fill='x')
+        ttk.Label(brandframe, text=pyfiglet.figlet_format('slothyTools'), font = "consolas").pack(pady=5,padx=5)
 
         button_frame = ttk.Frame(root)
-        button_frame.pack(pady=10, padx=10)
+        button_frame.pack(pady=8, padx=8)
 
-        button_csv_to_xlsx_folder = ttk.Button(button_frame, text="CSV -> XLSX (Folder)", command=lambda: browse_C2X_Folder(console), bootstyle="success-outline", width=20)
-        button_csv_to_xlsx_folder.grid(row=0, column=0, padx=2, pady=2)
+        button_C2Xfolder = ttk.Button(button_frame, text="CSV -> XLSX (Folder)", command=lambda: browse_C2X_Folder(console), bootstyle="success", width=20).grid(row=0, column=0, padx=2, pady=2)
 
-        button_xlsx_to_csv_folder = ttk.Button(button_frame, text="XLSX -> CSV (Folder)", command=lambda: browse_X2C_Folder(console), bootstyle="success-outline", width=20)
-        button_xlsx_to_csv_folder.grid(row=1, column=0, padx=2, pady=2)
+        button_X2C_folder = ttk.Button(button_frame, text="XLSX -> CSV (Folder)", command=lambda: browse_X2C_Folder(console), bootstyle="success", width=20).grid(row=1, column=0, padx=2, pady=2)
 
-        button_csv_to_xlsx_file = ttk.Button(button_frame, text="CSV -> XLSX (File)", command=lambda: sC2X(console), bootstyle="success-outline", width=20)
-        button_csv_to_xlsx_file.grid(row=0, column=1, padx=2, pady=2)
+        button_C2X_file = ttk.Button(button_frame, text="CSV -> XLSX (File)", command=lambda: browse_C2X_File(console), bootstyle="success", width=20).grid(row=0, column=1, padx=2, pady=2)
 
-        button_xlsx_to_csv_file = ttk.Button(button_frame, text="XLSX -> CSV (File)", command=lambda: sX2C(console), bootstyle="success-outline", width=20)
-        button_xlsx_to_csv_file.grid(row=1, column=1, padx=2, pady=2)
+        button_X2C_file = ttk.Button(button_frame, text="XLSX -> CSV (File)", command=lambda: browse_X2C_File(console), bootstyle="success", width=20).grid(row=1, column=1, padx=2, pady=2)
 
-        separator = ttk.Separator(root, orient='horizontal')
-        separator.pack(fill='x', pady=0)
+        separator = ttk.Separator(root, bootstyle='success', orient='horizontal').pack(fill='x', pady=0)
 
-        console = ttk.Text(root, wrap=tk.WORD, width=600, height=15)
+        console = ttk.Text(root, wrap=tk.WORD, width=600, height=15, font = "consolas")
         console.pack(pady=10, padx=10, fill=tk.BOTH, expand=True)
         console.bind("<Key>", lambda e: "break")
         console.insert(END, "Welcome to slothyTools\n\n")
