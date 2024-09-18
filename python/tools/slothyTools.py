@@ -39,7 +39,8 @@ if not sys.executable.endswith('pythonw.exe'):
         os.system('cls')
         print(sTart, "\n>>> Relaunching with pythonw")
         sleep(0.5)
-        os.execv(sys.executable.replace('python.exe', 'pythonw.exe'), ['pythonw.exe'] + sys.argv)
+        os.system('start pythonw.exe slothyTools.py')
+        sys.exit()
     except Exception as e:
         log_error(f"Failed to relaunch with pythonw: {e}")
 else:
@@ -167,11 +168,11 @@ else:
         root = ttk.Window(themename="darkly")
         root.title("Acedia - slothyTools")
         root.geometry("500x300")
-        root.resizable(True, False)
+        root.resizable(True, True)
         root.minsize(500, 300)
 
         button_frame = ttk.Frame(root)
-        button_frame.pack(pady=8, padx=8)
+        button_frame.pack(pady=10, padx=10)
 
         button_csv_to_xlsx_folder = ttk.Button(button_frame, text="CSV -> XLSX (Folder)", command=lambda: browse_C2X_Folder(console), bootstyle="success-outline", width=20)
         button_csv_to_xlsx_folder.grid(row=0, column=0, padx=2, pady=2)
