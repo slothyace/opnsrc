@@ -173,7 +173,7 @@ else:
         
         brandframe = ttk.LabelFrame(root, text="Welcome To", bootstyle="success")
         brandframe.pack(pady=0, padx=10, ipadx=5 , fill='x')
-        ttk.Label(brandframe, text=pyfiglet.figlet_format('slothyTools'), font = "consolas").pack(pady=5,padx=5)
+        ttk.Label(brandframe, text=pyfiglet.figlet_format('slothyTools'), font = "consolas").pack()
 
         button_frame = ttk.Frame(root)
         button_frame.pack(pady=8, padx=8)
