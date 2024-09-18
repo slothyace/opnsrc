@@ -6,27 +6,39 @@ import csv
 import glob
 import tkinter as tk
 from tkinter import filedialog, messagebox
+from time import sleep
 
 # External Libraries
-installables = ["ttkbootstrap", "openpyxl"]
+print('Checking for external libraries')
+installables = ["ttkbootstrap", "openpyxl", "pyfiglet"]
 for library in installables:
     try:
         __import__(library)
     except ImportError:
+        print('\n')
+        print(library, 'is missing.')
+        print('Attempting to install.')
         subprocess.check_call([sys.executable, "-m", "pip", "install", library])
+print('All required libraries present')
 
 import ttkbootstrap as ttk
 from ttkbootstrap.constants import *
 import openpyxl
+import pyfiglet
 
 # Log errors to a file
 def log_error(error_message):
-    with open("error_log.txt", "a") as log_file:
+    with open("slothyTools_log.log", "a") as log_file:
         log_file.write(error_message + "\n")
 
 # Check if the script is running with pythonw
 if not sys.executable.endswith('pythonw.exe'):
     try:
+        sT = "slothyTools"
+        sTart = pyfiglet.figlet_format(sT)
+        os.system('cls')
+        print(sTart, "\n>>> Relaunching with pythonw")
+        sleep(0.5)
         os.execv(sys.executable.replace('python.exe', 'pythonw.exe'), ['pythonw.exe'] + sys.argv)
     except Exception as e:
         log_error(f"Failed to relaunch with pythonw: {e}")
@@ -153,9 +165,9 @@ else:
 
         # GUI Part
         root = ttk.Window(themename="darkly")
-        root.title("Acedia Slothy Tools")
+        root.title("Acedia - slothyTools")
         root.geometry("500x300")
-        root.resizable(True, True)
+        root.resizable(True, False)
         root.minsize(500, 300)
 
         button_frame = ttk.Frame(root)
@@ -179,7 +191,9 @@ else:
         console = ttk.Text(root, wrap=tk.WORD, width=600, height=15)
         console.pack(pady=10, padx=10, fill=tk.BOTH, expand=True)
         console.bind("<Key>", lambda e: "break")
+        console.insert(END, "Welcome to slothyTools\n\n")
 
         root.mainloop()
+        
     except Exception as e:
         log_error(f"Failed to initialize GUI: {e}")
