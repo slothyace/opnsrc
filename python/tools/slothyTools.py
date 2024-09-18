@@ -77,7 +77,6 @@ else:
                 console.insert(END, f"Converted {file_path} to {xlsx_file}\n\n")
                 console.see(END)
                 console.update_idletasks()
-                delFile(console, file_path)  # Ask to delete the original file
             except Exception as e:
                 console.insert(END, f"Failed to convert {file_path} due to: {e}\n\n")
                 console.see(END)
@@ -96,7 +95,6 @@ else:
                 console.insert(END, f"Converted {file_path} to {csv_file}\n\n")
                 console.see(END)
                 console.update_idletasks()
-                delFile(console, file_path)  # Ask to delete the original file
             except Exception as e:
                 console.insert(END, f"Failed to convert {file_path} due to: {e}\n\n")
                 console.see(END)
@@ -145,11 +143,13 @@ else:
             file_path = filedialog.askopenfilename(filetypes=[("CSV files", "*.csv")])
             if file_path:
                 C2X(file_path, console)
+                delFile(console, file_path)
 
         def sX2C(console):
             file_path = filedialog.askopenfilename(filetypes=[("Excel files", "*.xlsx")])
             if file_path:
                 X2C(file_path, console)
+                delFile(console, file_path)
 
         # GUI Part
         root = ttk.Window(themename="darkly")
